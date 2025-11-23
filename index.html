@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Editor tipo Word</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <input id="title" value="Documento sin título" />
+      <button onclick="downloadHTML()">Exportar .html</button>
+      <button onclick="exportSelection()">Exportar selección</button>
+      <input type="file" id="fileInput" accept=".html,text/html" onchange="openHTMLFile(event)" />
+      <input type="file" id="imageInput" accept="image/*" onchange="onImageInput(event)" />
+      <button onclick="document.getElementById('imageInput').click()">Insertar imagen</button>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <button onclick="exec('bold')">B</button>
+      <button onclick="exec('italic')">I</button>
+      <button onclick="exec('underline')">U</button>
+      <button onclick="exec('strikeThrough')">S</button>
+      <button onclick="exec('justifyLeft')">⇤</button>
+      <button onclick="exec('justifyCenter')">≡</button>
+      <button onclick="exec('justifyRight')">⇥</button>
+      <button onclick="exec('justifyFull')">⋯</button>
+      <button onclick="exec('insertUnorderedList')">•</button>
+      <button onclick="exec('insertOrderedList')">1.</button>
+      <button onclick="exec('undo')">↺</button>
+      <button onclick="exec('redo')">↻</button>
+      <button onclick="insertTable()">Tabla</button>
+      <button onclick="clearFormatting()">Limpiar formato</button>
+    </div>
+
+    <!-- Editor -->
+    <div id="editor" contenteditable="true" class="editor">
+      <h1>Bienvenido</h1>
+      <p>Este es un editor tipo "Word" hecho en HTML+JS.</p>
+    </div>
+  </div>
+
+  <script src="editor.js"></script>
+</body>
+</html>
